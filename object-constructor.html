@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Functions, Methods &amp; Objects - Object Constructor</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="info">
+      <h2>hotel availability</h2>
+      <div id="hotelName"></div>
+      <div id="availability">
+        <p id="rooms"></p>
+        <p>rooms left</p>
+      </div>
+    </div>
+  </body> 
+  <script>
+    var hotel= new Object();
+
+    hotel.name='park';
+    hotel.rooms=120;
+    hotel.booker=77;
+    hotel.checkAvailability=function(){
+      return this.rooms-this.booker;
+    };
+    var elName=document.getElementById('hotelName');
+    elName.textContent=hotel.name;
+
+    var elRooms=document.getElementById('rooms');
+    elRooms.textContent=hotel.checkAvailability();
+  </script>
+</html>

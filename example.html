@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JavaScript Functions, Methods &amp; Objects</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="info">
+      <h2>latest hotel offer</h2>
+      <div id="hotelName"></div>
+      <div id="roomRate"></div>
+      <div id="specialRate"></div>
+      <p>room rate when you book 2 or more nights</p>
+      <div id="offerEnds"></div>
+    </div>
+  </body>
+  <script>
+    (function(){
+      var hotel={
+        name:'Park',
+        roomRate:240,
+        discount:15,
+        offerprice:function(){
+          var offerRate=this.roomRate*((100-this.discount)/100);
+          return offerRate;
+        }
+      };
+      var hotelName,roomRate,specialRate;
+      hotelName=document.getElementById('hotelName');
+      roomRate=document.getElementById('room Rate');
+      specialRate=document.getElementById('specialRate');
+      hotelName.textContent=hotel.name;
+      roomRate.textContent='$'+hotel.roomRate.toFixed(2);
+      specialRate.textContent='$'+hotel.offerprice();
+      var expiryMsg;
+      var today;
+      var elEnds;
+      function offerExpires(today){
+        var weekFromToday,day,date,month,year,dayNames,monthName;
+        weekFromToday=new Date(today.getTime()+7*24*60*60*1000);
+        dayNames=['Sunday','Monday','Tuesday','Wendnesday','Thursday','Friday','Saturday'];
+        monthName=['January','February','March','April','May','June','July','August','September','October','November','December'];
+        day=dayNames[weekFromToday.getDay()];
+        date=weekFromToday.getDate();
+        month=monthName[weekFromToday.getMonth()];
+        year=weekFromToday.getFullYear();
+        expiryMsg='Offer expires next';
+        expiryMsg+=day+'<br />('+Date+' '+month+' '+year+')';
+        return expiryMsg;
+      }
+      today=new date();
+      elEnds=document.getElementById('offerEnds');
+      elEnds.innerHTML=offerExpires(today);
+    }());
+  </script>
+</html>

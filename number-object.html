@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Functions, Methods &amp; Objects - Number Object</title>
+    <link rel="stylesheet" href="css/c03.css" />
+  </head>
+  <body>
+    <h1>TravelWorthy</h1>
+    <div id="info"></div>
+  </body>
+  <script>
+    var originalNumber=10.23456;
+    var msg='<h2>original number</h2>'+ originalNumber+'</p>';
+    msg+='<h2>deccimal places</h2><p>'+originalNumber.toFixed(3)+'</p>';
+    msg+='<h2>3 digits</h2>'+originalNumber.toPrecision(3)+'</p>';
+    var el=document.getElementById('info');
+    el.innerHTML=msg;
+  </script>
+</html>
